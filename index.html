@@ -1,0 +1,797 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Núkk Shop</title>
+
+<!-- SEO -->
+<meta name="description" content="Núkk Shop menjual panel berkualitas dengan harga terjangkau, cepat, dan terpercaya.">
+
+<!-- OPEN GRAPH (WA, Telegram, Facebook, IG) -->
+<meta property="og:title" content="Núkk Shop">
+<meta property="og:description" content="Núkk Shop menjual panel berkualitas dengan harga terjangkau, cepat, dan terpercaya.">
+<meta property="og:image" content="https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773798235435-aas3xzsv.png?v=2">
+<meta property="og:url" content="https://pteroshop.nukk.my.id">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pterodactyl Panel">
+<meta property="og:locale" content="id_ID">
+
+<!-- TWITTER (biar sama kayak OG) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Núkk Shop">
+<meta name="twitter:description" content="Núkk Shop menjual panel berkualitas dengan harga terjangkau, cepat, dan terpercaya.">
+<meta name="twitter:image" content="https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773798235435-aas3xzsv.png?v=5">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#eef4ff;
+  color:#1e293b;
+}
+
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  padding:14px;
+  display:flex;
+  justify-content:center;
+}
+
+.header-center{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:600;
+  font-size:18px;
+  color:#2563eb;
+}
+
+.cart-svg{
+  width:22px;
+  height:22px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.cart-svg:hover{
+  stroke:#1e40af;
+  fill:#1e40af;
+}
+
+.banner{
+  width:100%;
+  height:181px;
+
+  border:1px solid #2563eb;
+  border-radius:0 0 20px 20px;
+
+  overflow:hidden; /* tetap */
+}
+
+.slider{
+  display:flex;
+  height:100%;
+  transition:0.5s ease;
+  will-change: transform;
+}
+
+.slider img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  flex-shrink:0;
+}
+
+/* CONTAINER */
+.container{
+  padding:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+}
+
+/* CARD */
+.card{
+  background:white;
+  border-radius:16px;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(37,99,235,0.08);
+  transition:0.25s;
+  border:1px solid rgba(37,99,235,0.08);
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 12px 25px rgba(37,99,235,0.15);
+}
+
+.card img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:8px;
+}
+
+/* TEXT */
+.nama{
+  font-size:14px;
+  font-weight:500;
+}
+
+.harga{
+  color:#2563eb;
+  font-weight:600;
+  margin-top:3px;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:10px;
+  background:linear-gradient(135deg,#3b82f6,#60a5fa);
+  color:white;
+  padding:8px;
+  border-radius:10px;
+  font-size:13px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.btn:hover{
+  opacity:0.9;
+}
+
+/* SECTION */
+.section-title{
+  font-size:18px;
+  font-weight:600;
+  color:#1e3a8a;
+}
+
+.section-desc{
+  font-size:13px;
+  color:#64748b;
+  margin-top:2px;
+}
+
+.section-line{
+  height:3px;
+  width:50px;
+  background:linear-gradient(90deg,#3b82f6,#60a5fa);
+  border-radius:10px;
+  margin:8px 0 15px;
+}
+
+.section{
+  grid-column:1/-1;
+}
+
+/* GRID PRODUK */
+.grid-produk{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+}
+
+.btn:active{
+  transform:scale(0.95);
+}
+
+.info-box{
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  color:#1e40af;
+  font-size:12px;
+  padding:8px;
+  border-radius:10px;
+  margin-top:6px;
+  text-align:left;
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:#64748b;
+  padding:20px 10px;
+  margin-top:20px;
+  border-top:1px solid rgba(0,0,0,0.05);
+}
+
+.info-title{
+  font-weight:600;
+  font-size:13px;
+  margin-bottom:4px;
+}
+
+.info-text{
+  font-size:12px;
+}
+
+.slider{
+  display:flex;
+  height:100%;
+  transition:0.5s ease;
+  will-change: transform;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.btn{
+  margin-top:10px;
+  background:linear-gradient(135deg,#3b82f6,#60a5fa);
+  color:white;
+  padding:8px;
+  border-radius:10px;
+  font-size:13px;
+  cursor:pointer;
+  transition:0.2s;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+}
+
+.btn svg{
+  width:16px;
+  height:16px;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 15px rgba(59,130,246,0.4);
+}
+
+.header-center{
+  display:flex;
+  justify-content:center;
+  width:100%;
+}
+
+.brand{
+  display:flex;
+  flex-direction:column;
+  align-items:center; /* ini bikin semua ke tengah */
+}
+
+.brand-top{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:18px;
+  font-weight:600;
+  color:#2563eb;
+}
+
+.brand-bottom{
+  display:flex;
+  align-items:center;   /* ini bikin SVG sejajar teks */
+  justify-content:center;
+  gap:6px;
+
+  font-size:18px;
+  font-weight:600;
+  color:#2563eb;
+
+  margin-top:2px;
+}
+
+.server-svg{
+  width:18px;
+  height:18px;
+  position:relative;
+  top:-1px; /* naik dikit */
+}
+
+.brand-bottom:hover .server-svg{
+  transform:scale(1.15);
+}
+
+.logo-svg{
+  width:18px;
+  height:18px;
+}
+
+.brand-bottom{
+  margin-top:2px;
+}
+
+/* HAMBURGER */
+/* =========================
+   HAMBURGER PRO
+========================= */
+.hamburger{
+  position:absolute;
+  left:15px;
+  top:50%;
+  transform:translateY(-50%);
+
+  width:42px;
+  height:42px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(12px);
+
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.4);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  cursor:pointer;
+  z-index:200;
+
+  transition:0.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* hover */
+.hamburger:hover{
+  transform:translateY(-50%) scale(1.06);
+  box-shadow:
+    0 12px 25px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* garis */
+.hamburger span{
+  display:block;
+  height:2.5px;
+  width:18px;
+  background:#2563eb;
+  border-radius:10px;
+  transition:0.4s cubic-bezier(.4,0,.2,1);
+}
+
+/* animasi jadi X */
+.hamburger.active span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2){
+  opacity:0;
+  transform:scale(0);
+}
+
+.hamburger.active span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+
+.menu{
+  position:absolute;
+  top:70px;
+  left:5px;
+
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  width:max-content;
+
+  /* 🔥 UBAH INI */
+  background:rgba(255,255,255,0.15); /* lebih transparan */
+  backdrop-filter:blur(60px) saturate(200%);
+  -webkit-backdrop-filter:blur(60px) saturate(200%);
+
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  opacity:0;
+  transform:translateY(-12px) scale(0.95);
+  pointer-events:none;
+
+  transition:0.35s cubic-bezier(.4,0,.2,1);
+  z-index:150;
+}
+
+.menu::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(80px);
+  -webkit-backdrop-filter:blur(80px);
+
+  z-index:-1;
+}
+
+/* muncul */
+.menu.active{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+
+
+/* =========================
+   BUTTON MENU
+========================= */
+.menu-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:10px 16px;
+
+  border-radius:12px;
+
+  font-size:14px;
+  font-weight:500;
+
+  text-decoration:none;
+  color:white;
+
+  white-space:nowrap;
+
+  transition:0.25s cubic-bezier(.4,0,.2,1);
+}
+
+/* WHATSAPP */
+.menu-btn.wa{
+  background:linear-gradient(135deg,#25D366,#1ebe5d);
+}
+
+/* TELEGRAM */
+.menu-btn.tg{
+  background:linear-gradient(135deg,#229ED9,#1d8cc7);
+}
+
+/* ICON */
+.menu-btn svg{
+  width:18px;
+  height:18px;
+}
+
+/* hover */
+.menu-btn:hover{
+  transform:translateY(-2px) scale(1.04);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* klik */
+.menu-btn:active{
+  transform:scale(0.96);
+}
+
+.menu-btn.tg svg,
+.telegram-icon {
+  width:14px;  /* lebih kecil dari 18px default */
+  height:14px; /* lebih kecil dari 18px default */
+  vertical-align:middle; /* biar sejajar dengan teks */
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-center">
+
+  <!-- ✅ TARUH DI SINI -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- MENU BLUR -->
+  <div class="menu" id="menu">
+    
+<a href="https://wa.me/62895365649947" target="_blank" class="menu-btn wa">
+  <svg viewBox="0 0 32 32">
+    <path fill="#ffffff" d="M16.001 3C9.373 3 4 8.373 4 15.001c0 2.648.773 5.095 2.104 7.164L4 29l7.041-2.071a11.94 11.94 0 004.96 1.072C22.629 28 28 22.628 28 16.001 28 9.373 22.629 3 16.001 3zm0 22.693a9.683 9.683 0 01-4.928-1.354l-.354-.21-4.178 1.23 1.239-4.076-.231-.366A9.68 9.68 0 016.32 15c0-5.35 4.332-9.68 9.68-9.68 5.35 0 9.68 4.33 9.68 9.68 0 5.349-4.33 9.693-9.68 9.693zm5.317-7.283c-.29-.145-1.717-.851-1.982-.948-.266-.099-.459-.145-.65.145-.19.29-.748.947-.917 1.139-.17.192-.338.217-.628.073-.29-.145-1.226-.451-2.335-1.437-.862-.769-1.442-1.719-1.612-2.009-.17-.289-.018-.445.128-.589.132-.132.29-.338.436-.507.145-.17.193-.289.29-.482.099-.192.049-.362-.025-.507-.073-.145-.65-1.566-.891-2.145-.234-.561-.471-.485-.65-.495l-.554-.01c-.192 0-.507.073-.774.362-.266.29-1.016.992-1.016 2.414s1.04 2.8 1.183 2.992c.145.193 2.044 3.12 4.949 4.378.692.298 1.231.476 1.65.61.693.22 1.323.189 1.821.115.556-.083 1.717-.7 1.96-1.377.242-.677.242-1.257.17-1.377-.073-.119-.266-.19-.556-.334z"/>
+  </svg>
+  WhatsApp
+</a>
+
+<a href="https://t.me/NyXuQi" target="_blank" class="menu-btn tg">
+  <svg class="telegram-icon" viewBox="0 0 24 24">
+    <path fill="white" d="M9.04 15.54l-.39 5.46c.56 0 .8-.24 1.09-.52l2.61-2.5 5.41 3.96c.99.55 1.69.26 1.95-.92l3.54-16.6c.34-1.54-.56-2.14-1.52-1.78L1.7 9.29c-1.49.58-1.47 1.41-.25 1.79l5.1 1.59L18.27 5.5c.55-.34 1.05-.15.64.19"/>
+  </svg>
+  Telegram
+</a>
+
+  </div>
+
+  <!-- INI JANGAN DIHAPUS -->
+  <div class="header-center">
+
+    <div class="brand">
+      
+      <div class="brand-top">
+        Núkk Shop
+        <svg class="logo-svg" viewBox="0 0 24 24" fill="none">
+          <path d="M6 6H21L19 14H8L6 6Z" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="20" r="1.5" fill="#2563eb"/>
+          <circle cx="18" cy="20" r="1.5" fill="#2563eb"/>
+          <path d="M6 6L5 3H2" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+<div class="brand-bottom">
+  Panel Pterodactyl
+
+  <!-- SVG SERVER -->
+  <svg class="server-svg" viewBox="0 0 24 24" fill="none">
+    <rect x="3" y="4" width="18" height="6" rx="2" stroke="#2563eb" stroke-width="2"/>
+    <rect x="3" y="14" width="18" height="6" rx="2" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="7" cy="7" r="1" fill="#2563eb"/>
+    <circle cx="7" cy="17" r="1" fill="#2563eb"/>
+  </svg>
+</div>
+
+    </div>
+
+  </div>
+</header>
+
+<div class="banner">
+  <div class="slider" id="slider">
+    <img src="https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773719248597-cx81cvyt.jpg" loading="eager" decoding="async">
+<img src="https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773720301397-d4i30o6b.jpg" loading="eager" decoding="async">
+<img src="https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773720261905-aj6l5ojn.jpg" loading="eager" decoding="async">
+  </div>
+</div>
+
+<div class="container" id="produk"></div>
+<footer class="footer">
+  © 2026 | Powered By NúkkEasy
+</footer>
+
+<script>
+const nomor = "62895365649947"
+
+const data = [
+  {nama:"Panel Ram 5Gb",harga:3000,kategori:"makanan",img:"https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773747155318-qnx2xjo9.png"},
+  
+  {nama:"Reseller Panel",harga:5000,kategori:"minuman",img:"https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773748160406-i19ur35y.jpg"},
+
+  {nama:"Ceo Panel",harga:10000,kategori:"minuman",img:"https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773776249309-nfkpzf6j.jpg"},
+  
+  {nama:"Panel Ram 6Gb",harga:4000,kategori:"makanan",img:"https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773747155318-qnx2xjo9.png"},
+  {nama:"Panel Ram 7Gb",harga:5000,kategori:"makanan",img:"https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773747155318-qnx2xjo9.png"},
+  {nama:"Panel Ram 8Gb",harga:6000,kategori:"makanan",img:"https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773747155318-qnx2xjo9.png"},
+  {nama:"Panel Ram 9Gb",harga:7000,kategori:"makanan",img:"https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773747155318-qnx2xjo9.png"},
+  {nama:"Panel Ram Unli",harga:8000,kategori:"makanan",img:"https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1773747155318-qnx2xjo9.png"},
+]
+
+let kategoriAktif = "all"
+
+function tampilProduk(){
+  const container = document.getElementById("produk")
+  container.innerHTML=""
+
+  const filtered = data
+  .filter(p => (kategoriAktif==="all" || p.kategori===kategoriAktif))
+    
+
+  if(kategoriAktif === "all"){
+
+    // MAKANAN
+    container.innerHTML += `
+      <div class="section reveal">
+        <div class="section-title">Panel Pterodactyl</div>
+        <div class="section-desc">Pilih ram sesuai kebutuhanmu, jalankan bot lancar tanpa lag.</div>
+        <div class="section-line"></div>
+
+        <div class="grid-produk" id="makanan"></div>
+      </div>
+    `
+
+    const makanan = document.getElementById("makanan")
+
+    filtered
+      .filter(p=>p.kategori==="makanan")
+      .forEach(p=>{
+        makanan.innerHTML += cardHTML(p)
+      })
+
+    // MINUMAN
+    container.innerHTML += `
+      <div class="section">
+        <div class="section-title">Role Panel Pterodactyl</div>
+        <div class="section-desc">Berbagai role panel siap dipilih sesuai keinginan.</div>
+        <div class="section-line"></div>
+
+        <div class="grid-produk" id="minuman"></div>
+      </div>
+    `
+
+    const minuman = document.getElementById("minuman")
+
+    filtered
+      .filter(p=>p.kategori==="minuman")
+      .forEach(p=>{
+        minuman.innerHTML += cardHTML(p)
+      })
+
+  } else {
+
+    filtered.forEach(p=>{
+      container.innerHTML += cardHTML(p)
+    })
+
+  }
+}
+
+// CARD
+function cardHTML(p){
+
+  let extra = ""
+
+  if(p.nama === "Reseller Panel"){
+    extra = `
+      <div class="info-box">
+        <div class="info-title">Role Reseller Panel</div>
+        <div class="info-text">
+          
+Bergabung ke grup Telegram eksklusif dan dapatkan akses untuk bebas membuat serta menjual panel. Cocok untuk kamu yang ingin mulai bisnis panel dengan mudah—tanpa perlu akses admin, tetap bisa cuan!
+        </div>
+      </div>
+    `
+  }
+
+  if(p.nama === "Ceo Panel"){
+    extra = `
+      <div class="info-box">
+        <div class="info-title">Role CEO Panel</div>
+        <div class="info-text">
+          
+Dapatkan akses Admin Panel penuh dan bergabung ke grup Telegram eksklusif. Nikmati kebebasan untuk membuat dan menjual panel sesuka Anda—cocok untuk yang ingin serius membangun bisnis panel dan menghasilkan keuntungan tanpa batas.
+        </div>
+      </div>
+    `
+  }
+
+  return `
+  <div class="reveal">
+    <div class="card">
+      <img src="${p.img}" loading="lazy" decoding="async">
+      <div class="nama">${p.nama}</div>
+      <div class="harga">Rp ${p.harga.toLocaleString()}</div>
+      <div class="btn" onclick="orderWA('${p.nama}',${p.harga})">
+  <svg viewBox="0 0 24 24" fill="none">
+    <path d="M6 8L7 20H17L18 8" stroke="white" stroke-width="2" stroke-linecap="round" />
+    <path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="white" stroke-width="2" />
+  </svg>
+  Order
+</div>
+    </div>
+
+    ${extra}
+  </div>`
+}
+
+// WA
+function orderWA(nama,harga){
+  const pesan = `Halo Nukk, saya mau order:%0A- ${nama} (Rp${harga})`
+  window.open(`https://wa.me/${nomor}?text=${pesan}`)
+}
+
+// LOAD
+tampilProduk()
+
+let index = 0
+const slider = document.getElementById("slider")
+const total = slider.children.length
+
+function showSlide(){
+  slider.style.transform = `translateX(-${index * 100}%)`
+}
+
+// AUTO SLIDE
+let auto = setInterval(()=>{
+  index = (index + 1) % total
+  showSlide()
+}, 6000) // 10 detik
+
+
+// SWIPE (GESER HP)
+let startX = 0
+
+slider.addEventListener("touchstart", (e)=>{
+  startX = e.touches[0].clientX
+})
+
+slider.addEventListener("touchend", (e)=>{
+  let endX = e.changedTouches[0].clientX
+  let diff = startX - endX
+
+  if(diff > 50){
+    index = (index + 1) % total
+  }else if(diff < -50){
+    index = (index - 1 + total) % total
+  }
+
+  showSlide()
+
+  // reset auto biar gak tabrakan
+  clearInterval(auto)
+  auto = setInterval(()=>{
+  index = (index + 1) % total
+  showSlide()
+}, 6000) // 10 detik
+})
+
+function revealOnScroll(){
+  const reveals = document.querySelectorAll(".reveal")
+
+  reveals.forEach(el=>{
+    const windowHeight = window.innerHeight
+    const elementTop = el.getBoundingClientRect().top
+    const visiblePoint = 100
+
+    if(elementTop < windowHeight - visiblePoint){
+      el.classList.add("active")
+    }
+  })
+}
+
+window.addEventListener("scroll", revealOnScroll)
+window.addEventListener("load", revealOnScroll)
+window.addEventListener("scroll", ()=>{
+  const scroll = window.scrollY
+  const banner = document.querySelector(".banner")
+
+  banner.style.transform = `translateY(${scroll * 0.2}px)`
+})
+
+// kode kamu di atas
+
+// ⬇️ TARUH DI PALING BAWAH
+const hamburger = document.getElementById("hamburger")
+const menu = document.getElementById("menu")
+
+hamburger.addEventListener("click", ()=>{
+  hamburger.classList.toggle("active")
+  menu.classList.toggle("active")
+})
+
+</script>
+
+</body>
+</html>
